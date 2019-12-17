@@ -44,13 +44,16 @@ class DataController extends Controller
 		    ->from('data')
 		    ->groupBy(['EXTRACT(YEAR_MONTH from date)'])
 		    ->all();
-	    
+
+	    foreach ($listDataProvider as $row)
+		    $year_total[$row['year']] = isset($year_total[$row['year']]) ? $year_total[$row['year']] + $row['value'] : 0;
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'listDataProvider' => $listDataProvider,
             'months_translated' => $months_translated,
+            'year_total' => $year_total
         ]);
     }
 

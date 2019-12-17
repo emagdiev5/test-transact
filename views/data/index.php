@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<table class="table">
 			<tbody>
 			<?php foreach ($listDataProvider as $month): ?>
-				<?php if(isset($year)){}else{$year = $month['year']; echo '<th>'.$year.'</th>';}?>
+				<?php if(isset($year)){}else{$year = $month['year']; echo '<th>'.$year.' ('.$year_total[$year].')'.'</th>';}?>
 			<tr>
 				<td><?=$months_translated[$month['month']]?></td>
 				<td>(<?=$month['value']?>)</td>
